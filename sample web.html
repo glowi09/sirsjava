@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glowi Coffee Shop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f7f1e3;
+      color: #333;
+    }
+    header {
+      background-color: #6f4e37;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background-color: #8b5e3c;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      padding: 2rem;
+      text-align: center;
+    }
+    .menu-item {
+      margin: 1rem;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      display: inline-block;
+      width: 200px;
+      background-color: #fff;
+      vertical-align: top;
+    }
+    .menu-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    button {
+      background-color: #6f4e37;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    #order-list {
+      margin-top: 2rem;
+      background-color: #fff8dc;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    #final-message {
+      margin-top: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #6f4e37;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Glowi Coffee Shop</h1>
+    <p>Your neighborhood coffee shop</p>
+  </header>
+
+  <nav>
+    <a href="#menu">Menu</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="container" id="menu">
+    <h2>About Glowi Coffee Shop</h2>
+    <p><strong>Glowi Coffee Shop</strong> is a cozy corner where great coffee meets great company. We aim to provide a warm atmosphere and the perfect brew for everyone—whether you're working, relaxing, or catching up with friends.</p>
+
+    <h3>Our Mission</h3>
+    <p>To serve high-quality coffee and create a welcoming space for the community to connect and unwind.</p>
+
+    <h3>Our Vision</h3>
+    <p>To be the go-to neighborhood coffee shop known for warmth, flavor, and friendliness.</p>
+  </div>
+
+  <div class="container">
+    <h2>Order from Our Menu</h2>
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG" alt="Espresso">
+      <h3>Espresso</h3>
+      <button onclick="addToOrder('Espresso')">Order</button>
+    </div>
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Cappuccino_at_Sightglass_Coffee.jpg" alt="Cappuccino">
+      <h3>Cappuccino</h3>
+      <button onclick="addToOrder('Cappuccino')">Order</button>
+    </div>
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Caffe_Latte_at_Pulse_Cafe.jpg" alt="Latte">
+      <h3>Latte</h3>
+      <button onclick="addToOrder('Latte')">Order</button>
+    </div>
+    <div class="menu-item">
+      <img src="https://www.coffeebeans.ph/storage/2023/07/americano-530x530.jpg" alt="Americano">
+      <h3>Americano</h3>
+      <button onclick="addToOrder('Americano')">Order</button>
+    </div>
+  </div>
+
+  <div class="container" id="order-list">
+    <h2>Your Order</h2>
+    <ul id="orders"></ul>
+    <button onclick="showFinalOrder()">Finalize Order</button>
+    <div id="final-message"></div>
+  </div>
+
+  <div class="container" id="contact">
+    <h2>Contact Us</h2>
+    <p>📞 Phone: 999-777-555-</p>
+    <p>📧 Email: glowicoffee@example.com</p>
+    <p>📍 Visit us: 123 Brew Lane, Bean City</p>
+  </div>
+
+  <script>
+    const finalMessage = document.getElementById('final-message');
+    const orders = [];
+
+    function addToOrder(item) {
+      const orderList = document.getElementById('orders');
+      const li = document.createElement('li');
+      li.textContent = item;
+      orderList.appendChild(li);
+      orders.push(item);
+    }
+
+    function showFinalOrder() {
+      if (orders.length > 0) {
+        finalMessage.innerHTML = Final Order: <strong>${orders.join(', ')}</strong><br>Thank you for ordering at Glowi Coffee Shop. Hope you enjoy!;
+      } else {
+        finalMessage.textContent = 'Your order is empty!';
+      }
+    }
+  </script>
+</body>
+</htm
